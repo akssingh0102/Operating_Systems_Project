@@ -1,0 +1,107 @@
+Write a multithreaded program that implements the banker's algorithm. Create n threadsthat request and release resources 
+from the bank. The banker will grant the request only if itleaves the system in a safe state. It is important that shared 
+data be safe from concurrentaccess. To ensure safe access to shared data, you can use mutex locks.
+
+INPUT::
+
+Enter the number of Processes ::5
+Enter the no of Resources ::3
+
+Enter the available resource (eg R1 R2 ...)::3 3 2
+Enter the resource allocated to process 1 (eg.R1 R2 ...) :: 
+0 1 0
+Enter the resource allocated to process 2 (eg.R1 R2 ...) :: 
+2 0 0 
+Enter the resource allocated to process 3 (eg.R1 R2 ...) :: 
+3 0 2
+Enter the resource allocated to process 4 (eg.R1 R2 ...) :: 
+2 1 1
+Enter the resource allocated to process 5 (eg.R1 R2 ...) :: 
+0 0 2
+Enter the Max Resource Required by process 1 (eg.R1 R2 ...) ::
+7 5 3
+Enter the Max Resource Required by process 2 (eg.R1 R2 ...) ::
+3 2 2
+Enter the Max Resource Required by process 3 (eg.R1 R2 ...) ::
+9 0 2
+Enter the Max Resource Required by process 4 (eg.R1 R2 ...) ::
+2 2 2
+Enter the Max Resource Required by process 5 (eg.R1 R2 ...) ::
+4 3 3
+
+
+
+OUTPUT::
+
+
+----------------------------------------------------------
+Safe Sequence of Processes ::
+2   4   5   1   3   
+----------------------------------------------------------
+ 
+PROCESS EXECUATION
+======= ==========
+ 
+ 
+
+------->   Process 2  <-------- 
+Resource Allocated      ::2  0  0  
+Resource Needed         ::1  2  2  
+Resource Available      ::3  3  2  
+Resource Allocation Validated
+Running Process 2 
+Completed Process 
+Releasing Resource 
+Resources are released successfully 
+Now Availabe Resources   :: 5  3  2  
+
+
+------->   Process 4  <-------- 
+Resource Allocated      ::2  1  1  
+Resource Needed         ::0  1  1  
+Resource Available      ::5  3  2  
+Resource Allocation Validated
+Running Process 4 
+Completed Process 
+Releasing Resource 
+Resources are released successfully 
+Now Availabe Resources   :: 7  4  3  
+
+
+------->   Process 5  <-------- 
+Resource Allocated      ::0  0  2  
+Resource Needed         ::4  3  1  
+Resource Available      ::7  4  3  
+Resource Allocation Validated
+Running Process 5 
+Completed Process 
+Releasing Resource 
+Resources are released successfully 
+Now Availabe Resources   :: 7  4  5  
+
+
+------->   Process 1  <-------- 
+Resource Allocated      ::0  1  0  
+Resource Needed         ::7  4  3  
+Resource Available      ::7  4  5  
+Resource Allocation Validated
+Running Process 1 
+Completed Process 
+Releasing Resource 
+Resources are released successfully 
+Now Availabe Resources   :: 7  5  5  
+
+
+------->   Process 3  <-------- 
+Resource Allocated      ::3  0  2  
+Resource Needed         ::6  0  0  
+Resource Available      ::7  5  5  
+Resource Allocation Validated
+Running Process 3 
+Completed Process 
+Releasing Resource 
+Resources are released successfully 
+Now Availabe Resources   :: 10  5  7  
+
+
+ --------------------------END----------------------------
